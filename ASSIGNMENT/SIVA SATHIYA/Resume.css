@@ -1,0 +1,44 @@
+.main{
+    background-color: antiquewhite;
+    width:100%;
+    height: 50%;
+}
+.box1{
+    background-color:blueviolet;
+    width: 35%;
+    height:1000px;
+   color: white;
+   float: left;
+}
+.info{
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 10px;
+    font-size:25px;
+}
+.obj{
+    color: white;
+    margin-left: 10px;
+}
+.li{
+    margin-right:20px;
+}
+.box2{
+    background-color:rgb(219, 193, 245);
+    width: 35%;
+    height:1000px;
+    color: black;
+    float: left;
+}
+.box3{
+    color: black;
+    font-size: 15px;
+    margin-left: 10px;
+}
+.pic{
+    border-radius:100%;
+    width: 30%;
+    height: 30%;
+    margin-left: 30%;
+    margin-top: 10px;
+}
