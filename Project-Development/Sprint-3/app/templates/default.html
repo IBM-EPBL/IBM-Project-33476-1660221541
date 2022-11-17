@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Daily Press</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate1.css') }}">
+	<!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style2.css') }}">
+    <meta name="google-signin-client_id" content="756680866853-d6otuuv1fms1coolkivarkd0vj545i74.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());  
+            window.location.href='/home.html'     
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+        function onSignIn(googleUser) {        
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+    
+            // The ID token you need to pass to your backend:
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);       
+          }
+    </script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo">Daily <span>Press</span></span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+                <a href="home.html">home</a>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="username">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" id="password">
+			<br/>
+			<button type="submit">Sign In</button>
+			<br/><br/>
+            <center><div class="g-signin2" ></div></center>
+            
+            <a href="#"><p class="small">Forgot your password?</p></a>
+			
+		</div>
+		
+	</div>
+</body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+
+</html>
