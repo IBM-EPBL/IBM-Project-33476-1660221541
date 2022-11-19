@@ -23,11 +23,11 @@ The application requires the following installations to operate:
 ## Project Setup Instructions
 1) Git clone the repository 
 ```
-Enter the github repo link
+https://github.com/IBM-EPBL/IBM-Project-33476-1660221541.git
 ```
-2. cd into Flask-News-App
+2. cd into Final Deliverables
 ```
-cd Flask-News-App
+cd Final_Deliverables
 ```
 3. create a virtual env
 ```
